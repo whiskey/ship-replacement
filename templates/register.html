@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ship replacement</title>
+<link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div>
+	<p><a href="/eve">Home</a></p>
+	<form action="./register" method="post">
+			<h2>Registration</h2>
+			<table>
+			<tr>
+				<th>Username:</th>
+				<td>{{form.uNameField}}</td>
+				<td class="helptext">{{form.uNameField.help_text}}</td>
+				{% if form.uNameField.errors %}<td class="error">{{form.uNameField.errors|removetags:"ul li"}}</td>{% endif %}
+			</tr>
+			<tr>
+				<th>Password:</th>
+				<td>{{form.uPassField1}}</td>
+				<td class="helptext">{{form.uPassField1.help_text}}</td>
+				{% if form.uPassField1.errors %}<td class="error">{{form.uPassField1.errors|removetags:"ul li"}}</td>{% endif %}
+			</tr>
+			<tr>
+				<th>Password (repeat):</th>
+				<td>{{form.uPassField2}}</td>
+				<td class="helptext">{{form.uPassField2.help_text}}</td>
+				{% if form.uPassField2.errors %}<td class="error">{{form.uPassField2.errors|removetags:"ul li"}}</td>{% endif %}
+			</tr>
+			<tr>
+				<th>E-Mail:</th>
+				<td>{{form.uMailField}}</td>
+				<td class="helptext">{{form.uMailField.help_text}}</td>
+				{% if form.uMailField.errors %}<td class="error">{{form.uMailField.errors|removetags:"ul li"}}</td>{% endif %}
+			</tr>
+			</table>
+			<span><input type="submit" value="sign me in"/></span>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ship replacement</title>
+<link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="login">
+	<p class="smalltext">
+	{% if current_user %}
+		<span>logged in as {{current_user}}</span></body>
+		<span><a href="./logout"> (logout) </a></span>
+		{% if current_user.is_staff %}
+		<span><a href="/admin"> (admin panel) </a></span>
+		{% endif %}
+	{% else %}
+	<form action="./login" method="post">
+			<span>Username: {{loginForm.uNameField}}</span>
+			<span>Password: {{loginForm.uPassField}}</span>
+			<span><input type="submit" value="login"/></span>
+			{% if loginForm.uNameField.errors %}
+			<span class="error">{{loginForm.uNameField.label}}: {{loginForm.uNameField.errors|removetags:"ul li"}}</span>
+			{% endif %}
+			{% if loginForm.uPassField.errors %}
+			<span class="error">{{loginForm.uPassField.label}}: {{loginForm.uPassField.errors|removetags:"ul li"}}</span>
+			{% endif %}
+	</form>
+	<p><a href="./register">register new user</a></p>
+	{% endif %}
+	</p>
+</div>
+
+{% if current_user %}
+<div id="rList">
+	<h2>ship replacements</h2>
+	<ul>
+	{% for replacement in rList %}
+		<li>{{replacement}}</li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div id="tickets">
+	{% if current_user %}
+	<h2>new ticket</h2>
+	<form action="." method="post">
+		<table>
+		{{ticketForm.as_table}}
+		</table>
+		<input class="submit" type="submit" value="submit ticket"/>
+	</form>
+	{% else %}
+	<p class="notification">please log in to create ticket</p>
+	{% endif %}
+	<h2>tickets</h2>
+	<table class="ticketlist">
+		<tr>
+			<th>Victim</th>
+			<th>Ship</th>
+			<th>Link</th>
+			<th>Status</th>
+			<th>Comments</th>
+		</tr>
+	{% for ticket in tList %}
+		<tr class="ticket">
+			<td class="tVictim">{{ticket.victim}}</td>
+			<td class="tShip">{{ticket.ship}}</td>
+			<td class="tLink"><a href="{{ticket.kbLink}}">fail link</a></td>
+			<td class="{{ticket.statusOpen|yesno:"open,closed"}}">{{ticket.statusOpen|yesno:"open,closed"}}</td>
+			<td class="tComments">{{ticket.notes}}</td>
+		</tr>
+	{% if current_user.is_staff %}
+		<tr class="moderator">
+			{% if ticket.statusOpen %}
+			<td colspan="5">
+				<span class="mod_info">opened on {{ticket.date_entry|date}} by {{ticket.issuer}}</span>
+				<span class="mod_mark"><a href="./markTicket/{{ticket.id}}">mark done</a></span>
+				<span class="mod_delete"><a href="./deleteTicket/{{ticket.id}}">delete</a></span>
+			</td>
+			{% else %}
+			<td colspan="5">closed on {{ticket.date_closed|date}}</td>
+			{% endif %}
+		</tr>
+	{% endif %}
+	{% endfor %}
+	</table>
+</div>
+{% endif %}
+</html>

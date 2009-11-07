@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+/* @override http://localhost:8080/eve/media/css/style.css */
+
+body {
+	background-color: #124;
+	min-width: 500px;
+}
+body{
+	min-width: 760px;
+	background: #050a15 url(../img/wreck.png) no-repeat fixed 300px 140px;
+}
+h2{
+	text-transform: uppercase;
+	color: #d3290f;
+	font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+th{
+	color: #fff;
+	font: bold 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: capitalize;
+}
+a:link, a:active, a:visited{
+	color: #facc82;
+	font-size: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+a:hover{
+	color: #f75c3b;
+	font-size: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;	
+}
+p.smalltext{
+	color: #cacaca;
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+#login{
+	right: 15px;
+	padding: 5px;
+	color: #fff;
+	font-variant: small-caps;
+}
+#rList{
+	position: relative;
+	float: right;
+	padding-right: 10px;
+	padding-left: 5px;
+}
+#rList ul{
+	color: #a8a8a8;
+	border: 1px solid #535353;
+	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+	position: relative;
+	float: right;
+	background-color: rgba(0,0,0,0.47);
+	margin-top: 0;
+	padding-right: 10px;
+	padding-bottom: 6px;
+	padding-left: 25px;
+}
+.ticketlist{
+	border: 1px solid #535353;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.47);	
+}
+.ticket{
+	color: #fff;
+	background-color: #272c46;
+}
+#tickets form{
+	border: 1px solid #535353;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.47);
+	width: 415px;
+}
+.helptext{
+	color: #e7e3d7;
+	font: 10px "Lucida Grande", Lucida, Verdana, sans-serif;
+	width: 230px;
+	text-align: left;
+	padding-right: 40px;
+}
+.error{
+	color: #f81936;
+	font: bold 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: capitalize;
+}
+.moderator{
+	background-color: #273358;
+	text-align: center;
+	font: 12px/11px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #a2a2a2;
+}
+.moderator td{
+	border-bottom-style: outset;
+	border-bottom-width: 3px;
+	text-align: right;
+}
+.moderator span{
+	margin: 25px;
+}
+.tVictim{
+	width: 140px;
+	text-align: center;
+}
+.tShip{
+	width: 145px;
+	text-align: center;
+}
+.tLink{
+	width: 100px;
+	text-align: center;
+}
+.open{
+	width: 100px;
+	text-align: center;
+	color: #62fd43;
+}
+.closed{
+	width: 100px;
+	text-align: center;
+	color: #f92e26;
+}
+.tComments{
+	width: 250px;
+}
